@@ -1,0 +1,277 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "wiki tech",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "OrderProductandWeatherIntent",
+          "slots": [
+            {
+              "name": "City",
+              "type": "AMAZON.City"
+            }
+          ],
+          "samples": [
+            "what temperature is {City}",
+            "what weather of {City}",
+            "please tell me temperature of {City}",
+            "tell me the temperature of {City}",
+            "what temperature of {City}"
+          ]
+        },
+        {
+          "name": "OrderDrinkandDishesIntent",
+          "slots": [
+            {
+              "name": "drink",
+              "type": "Drinks_Custom"
+            },
+            {
+              "name": "food",
+              "type": "FastFood"
+            }
+          ],
+          "samples": [
+            "please order {food}",
+            "please Order {drink}",
+            "i like to eat {food}",
+            "i like to drink {drink}",
+            "i wanna {drink} and eat {food}",
+            "Please Order {drink} and {food}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "patties"
+              }
+            },
+            {
+              "name": {
+                "value": "pizzas"
+              }
+            },
+            {
+              "name": {
+                "value": "french fries"
+              }
+            },
+            {
+              "name": {
+                "value": "snack"
+              }
+            },
+            {
+              "name": {
+                "value": "sandwiches"
+              }
+            },
+            {
+              "name": {
+                "value": "zinger"
+              }
+            },
+            {
+              "name": {
+                "value": "pizza"
+              }
+            },
+            {
+              "name": {
+                "value": "Burger"
+              }
+            }
+          ],
+          "name": "FastFood"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "soft drinks"
+              }
+            },
+            {
+              "name": {
+                "value": "black tea"
+              }
+            },
+            {
+              "name": {
+                "value": "fruit juice"
+              }
+            },
+            {
+              "name": {
+                "value": "drink"
+              }
+            },
+            {
+              "name": {
+                "value": "green tea"
+              }
+            },
+            {
+              "name": {
+                "value": "chilled water"
+              }
+            },
+            {
+              "name": {
+                "value": "water"
+              }
+            },
+            {
+              "name": {
+                "value": "juice"
+              }
+            },
+            {
+              "name": {
+                "value": "milk shake"
+              }
+            },
+            {
+              "name": {
+                "value": "kehwa"
+              }
+            },
+            {
+              "name": {
+                "value": "soup"
+              }
+            },
+            {
+              "name": {
+                "value": "coffee"
+              }
+            },
+            {
+              "name": {
+                "value": "cold drink"
+              }
+            },
+            {
+              "name": {
+                "value": "Tea"
+              }
+            }
+          ],
+          "name": "Drinks_Custom"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "OrderProductandWeatherIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "City",
+              "type": "AMAZON.City",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.914967554097.75399358271"
+              }
+            }
+          ]
+        },
+        {
+          "name": "OrderDrinkandDishesIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "drink",
+              "type": "Drinks_Custom",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1000035929955.399285856732"
+              }
+            },
+            {
+              "name": "food",
+              "type": "FastFood",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1000035929955.800063983273"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.914967554097.75399358271",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Thank you for interest. please tell me the name of city. i will tell you the weather of city, drink and food suggestion."
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1000035929955.399285856732",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "would you like to drink. Please tell me."
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1000035929955.800063983273",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Would you like to eat. please tell me."
+          }
+        ]
+      }
+    ]
+  },
+  "version": "56"
+}
